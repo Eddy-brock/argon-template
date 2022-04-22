@@ -9,6 +9,7 @@ import { RegisterComponent } from 'src/app/pages/register/register.component';
 import { EnterPriseComponent } from 'src/app/pages/enter-prise/enter-prise.component';
 import { AddEnterpriseComponent } from 'src/app/pages/enter-prise/add-enterprise/add-enterprise.component';
 import { EditEnterpriseComponent } from 'src/app/pages/enter-prise/edit-enterprise/edit-enterprise.component';
+import { MunicipyComponent } from 'src/app/pages/municipy/municipy.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -19,5 +20,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'register',       component: RegisterComponent },
     { path: 'enter-prise',    component: EnterPriseComponent},
     { path: 'add-enterprise', component: AddEnterpriseComponent},
-    { path: 'edit-enterprise/:id', component: EditEnterpriseComponent}
+    { path: 'edit-enterprise/:id', component: EditEnterpriseComponent},
+    { path: 'municipy',            component: MunicipyComponent}
 ];

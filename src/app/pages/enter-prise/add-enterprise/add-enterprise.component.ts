@@ -23,7 +23,7 @@ error: string[]=[];
                  //FormGroup
                  this.newRegister = formBuilder.group({
                   idState: ['',[Validators.required]],
-                  municipality: ['',[Validators.required]],
+                  idMunicipality: ['',[Validators.required]],
                   fldname: ['',[Validators.required]],
                   fldlocality: ['',[Validators.required]],
                   fldstreet: ['',[Validators.required]],
@@ -51,7 +51,7 @@ error: string[]=[];
     }
     const register : EnterprisePostI = {
       idState: String(this.newRegister.get('idState')?.value),
-                  idMunicipality:String(this.newRegister.get('municipality')?.value) ,
+                  idMunicipality:String(this.newRegister.get('idMunicipality')?.value) ,
                   fldname: String(this.newRegister.get('fldname')?.value),
                   fldlocality: String(this.newRegister.get('fldlocality')?.value),
                   fldstreet: String(this.newRegister.get('fldstreet')?.value),
