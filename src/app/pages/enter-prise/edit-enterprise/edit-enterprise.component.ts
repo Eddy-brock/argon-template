@@ -44,6 +44,7 @@ export class EditEnterpriseComponent implements OnInit {
       this.action = 'Editar'
       this.editarService.GetIdEnter(this.idEnterprise).subscribe((resp:enterpriseI)=>{
         this.enterprise = resp;
+        console.log(resp);
         this.newDate.patchValue({
           fldname : resp.fldname,
           fldlocality: resp.fldlocality,
@@ -70,20 +71,20 @@ export class EditEnterpriseComponent implements OnInit {
     }
     const edita:enterpriseI =
     {
-      idEnterprise: this.enterprise?.idEnterprise,
-      fldname : this.newDate.get('fldname')?.value,
-      fldlocality : this.newDate.get('fldlocality')?.value,
-      fldstreet : this.newDate.get('fldstreet')?.value,
-      fldnumber : this.newDate.get('fldnumber')?.value,
-      fldpostCode : this.newDate.get('fldpostCode')?.value,
-      fldphoneNumber : this.newDate.get('fldphoneNumber')?.value,
-      fldemail : this.newDate.get('fldemail')?.value,
-      fldpageWeb : this.newDate.get('fldpageWeb')?.value,
-      idState : this.newDate.get('idState')?.value,
-      idMunicipality : this.newDate.get('idMunicipality')?.value,
+      idEnterprise: this.enterprise.idEnterprise,
+      fldname : this.newDate.get('fldname').value,
+      fldlocality : this.newDate.get('fldlocality').value,
+      fldstreet : this.newDate.get('fldstreet').value,
+      fldnumber : this.newDate.get('fldnumber').value,
+      fldpostCode : this.newDate.get('fldpostCode').value,
+      fldphoneNumber : this.newDate.get('fldphoneNumber').value,
+      fldemail : this.newDate.get('fldemail').value,
+      fldpageWeb : this.newDate.get('fldpageWeb').value,
+      idState : this.newDate.get('idState').value,
+      idMunicipality : this.newDate.get('idMunicipality').value,
 
     }//pendiente diseño para pruebas
-    if(this.erorrs.length ==0)
+    if(this.erorrs.length == 0)
     {
       this.editarService.UpdateEnterprise(this.idEnterprise, edita).subscribe(
         (resp:any)=>{

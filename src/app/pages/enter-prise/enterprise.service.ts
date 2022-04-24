@@ -19,11 +19,12 @@ export class EnterpriseService {
       return this.http.get<enterpriseI[]>(urlApi,{headers: headers} );
     }
 
-    GetIdEnter(id:number):Observable<enterpriseI>{
+    GetIdEnter(idEnterprise):Observable<enterpriseI>{
+      
+      let urlApi = api_url+'api/EnterPrise/Lista';
       const headers = new HttpHeaders().set('Authorization', `Bearer ${ localStorage.getItem('token')}`);
       console.log(headers);
-      let urlApi = api_url+'api/EnterPrise/'+id;
-      return this.http.get<any>(urlApi,{headers:headers});
+      return this.http.get<enterpriseI>(urlApi,{headers:headers});
     }
 
     
@@ -38,10 +39,13 @@ export class EnterpriseService {
 
     UpdateEnterprise( id:number, enterprise: enterpriseI ): Observable<enterpriseI[]>
     {
-        let urlApi = api_url + 'api/EnterPrise/'+id;
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${ localStorage.getItem('token')}`);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${ localStorage.getItem('token')}`);
         console.log(headers);
-        return this.http.put<any>(urlApi, enterprise,{headers:headers});
+      let urlApi = api_url + 'api/EnterPrise/';
+      
+        
+        
+        return this.http.put<any>(urlApi+id, enterprise,{headers:headers});
     }
 
     //DeleteEnterprise(id)

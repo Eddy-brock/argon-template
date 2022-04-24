@@ -41,7 +41,7 @@ export class EnterPriseComponent implements OnInit {
     });
   }
   //
-  editarEnterprise(id:any){
+  editarEnterprise(id){
     this.redirect.navigate(['edit-enterprise', id]);
     console.log(id);
   }

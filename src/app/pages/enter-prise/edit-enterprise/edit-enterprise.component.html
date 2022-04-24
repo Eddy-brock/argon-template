@@ -11,6 +11,7 @@
   <!-- Page content -->
   <div class="container mt--4 pb-5">
     <!-- Table -->
+    
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8">
         <div class="card bg-secondary shadow border-0">
@@ -19,6 +20,7 @@
           <div class="card-body px-lg-5 py-lg-5">
             <div class="text-center text-muted mb-4">
               <small>Or sign up with credentials</small>
+              
             </div>
             <h3 class="mb-o">{{action}}</h3>
             <app-loader *ngIf="idEnterprise>0 && isLoadingEditEnterprise"></app-loader>
@@ -36,7 +38,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Localización" type="text" formControlName="fldlocality">
+                  <input class="form-control" placeholder="Localización" type="text" id="fldlocality" formControlName="fldlocality">
                 </div>
               </div>
               <div class="form-group">
@@ -44,7 +46,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control" placeholder="calle" type="text" formControlName="fldstreet">
+                  <input class="form-control" placeholder="calle" type="text" id="fldstreet" formControlName="fldstreet">
                 </div>
               </div>
               <div class="form-group">
@@ -52,7 +54,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control" placeholder="celular" type="number" formControlName="fldnumber">
+                  <input class="form-control" placeholder="celular" type="number" id="fldnumber" formControlName="fldnumber">
                 </div>
               </div>
               <div class="form-group">
@@ -60,7 +62,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Codigo postal" type="number" formControlName="fldpostCode">
+                  <input class="form-control" placeholder="Codigo postal" type="number" id="fldpostCode" formControlName="fldpostCode">
                 </div>
               </div>
               <div class="form-group">
@@ -68,7 +70,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="telefono" type="number" formControlName="fldphoneNumber">
+                  <input class="form-control" placeholder="telefono" type="number" id="fldphoneNumber" formControlName="fldphoneNumber">
                 </div>
               </div>
               <div class="form-group">
@@ -76,7 +78,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Email" type="text" formControlName="fldemail">
+                  <input class="form-control" placeholder="Email" type="text" id="fldemail" formControlName="fldemail">
                 </div>
               </div>
               <div class="form-group">
@@ -84,7 +86,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="pagina web" type="text" formControlName="fldpageWeb">
+                  <input class="form-control" placeholder="pagina web" type="text" id="fldpageWeb" formControlName="fldpageWeb">
                 </div>
               </div>
               <div class="form-group">
@@ -92,7 +94,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Estatus: seleccionar 7" type="text" formControlName="idState">
+                  <input class="form-control" placeholder="Estatus: seleccionar 7" type="text" id="idState" formControlName="idState">
                 </div>
               </div>
               <div class="form-group">
@@ -100,7 +102,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="id municipio : 101" type="text" formControlName="idMunicipality">
+                  <input class="form-control" placeholder="id municipio : 101" type="text" id="idMunicipality" formControlName="idMunicipality">
                 </div>
               </div>
               <div class="form-group">
@@ -123,7 +125,7 @@
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary mt-4">Create account</button>
+                <button type="submit" class="btn btn-primary mt-4" value="Aceptar">Aceptar</button>
               </div>
             </form>
           </div>
