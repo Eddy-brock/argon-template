@@ -22,6 +22,7 @@ import { EnterpriseCashComponent } from './pages/enterprise-cash/enterprise-cash
 import { MunicipyComponent } from './pages/municipy/municipy.component';
 import { EditarEmpresaComponent } from './pages/enter-prise/editar-empresa/editar-empresa.component';
 import { AddRegisterComponent } from './pages/register/add-register/add-register.component';
+import { EditRegisterComponent } from './pages/register/edit-register/edit-register.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AddRegisterComponent } from './pages/register/add-register/add-register
     EnterpriseCashComponent,
     MunicipyComponent,
     EditarEmpresaComponent,
-    AddRegisterComponent
+    AddRegisterComponent,
+    EditRegisterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

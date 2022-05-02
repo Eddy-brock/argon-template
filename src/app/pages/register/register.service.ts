@@ -32,9 +32,11 @@ export class RegisterService {
         console.log(headers);
         return this.http.get<RegisterI[]>(urlApi, {headers:headers});
     }
-    getId(id:number):Observable<usuarioI>{
+    getId(id):Observable<RegisterI>{
         let urlApi = api_url+'api/Usuario/Lista/'+id;
-        return this.http.get<usuarioI>(urlApi,{headers:this.headers});
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${ localStorage.getItem('token')}`);
+        console.log(headers);
+        return this.http.get<RegisterI>(urlApi,{headers:this.headers});
     }
     UpdateEnterprise(id:number, enter:usuarioI): Observable<usuarioI[]>{
         let urlApi = api_url+'api/Usuario/'+id;
@@ -43,11 +45,11 @@ export class RegisterService {
         return this.http.put<any>(urlApi, enter, {headers:headers});
     }
 
-    putEnterrpise(form:usuarioI):Observable<usuarioI>{
-        let direccion = this.url_service;
+    putEnterrpise(id,form:RegisterI):Observable<RegisterI>{
+        let direccion = this.url_service+id;
         const headers = new HttpHeaders().set('Autorization', `Bearer ${ localStorage.getItem('token')}`);
         console.log(headers)
-        return this.http.put<usuarioI>(direccion, form,{headers:headers});
+        return this.http.put<RegisterI>(direccion, form,{headers:headers});
     }
 
     DeleteEnterprise(id:number){

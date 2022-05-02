@@ -12,6 +12,7 @@ import { EditEnterpriseComponent } from 'src/app/pages/enter-prise/edit-enterpri
 import { MunicipyComponent } from 'src/app/pages/municipy/municipy.component';
 import { EditarEmpresaComponent } from 'src/app/pages/enter-prise/editar-empresa/editar-empresa.component';
 import { AddRegisterComponent } from 'src/app/pages/register/add-register/add-register.component';
+import { EditRegisterComponent } from 'src/app/pages/register/edit-register/edit-register.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -25,5 +26,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'edit-enterprise/:id', component: EditEnterpriseComponent},
     { path: 'editar-empresa/:id', component: EditarEmpresaComponent},
     { path: 'municipy',            component: MunicipyComponent},
-    { path: 'add-register', component:AddRegisterComponent}
+    { path: 'add-register', component:AddRegisterComponent},
+    { path: 'edit-register/:id', component:EditRegisterComponent}
 ];
