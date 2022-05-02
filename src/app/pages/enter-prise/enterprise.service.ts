@@ -19,9 +19,9 @@ export class EnterpriseService {
       return this.http.get<enterpriseI[]>(urlApi,{headers: headers} );
     }
 
-    GetIdEnter(idEnterprise):Observable<enterpriseI>{
+    GetIdEnter(id):Observable<enterpriseI>{
       
-      let urlApi = api_url+'api/EnterPrise/Lista';
+      let urlApi = api_url+'api/EnterPrise/ListaID/'+id;
       const headers = new HttpHeaders().set('Authorization', `Bearer ${ localStorage.getItem('token')}`);
       console.log(headers);
       return this.http.get<enterpriseI>(urlApi,{headers:headers});
@@ -37,17 +37,25 @@ export class EnterpriseService {
       return this.http.post<any>(urlApi, newEnterprise, {headers:headers});
     }
 
-    UpdateEnterprise( id:number, enterprise: enterpriseI ): Observable<enterpriseI[]>
+    UpdateEnterprise( idEnterprise, enterprise: enterpriseI ): Observable<enterpriseI[]>
     {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${ localStorage.getItem('token')}`);
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
         console.log(headers);
       let urlApi = api_url + 'api/EnterPrise/';
-      
-        
-        
-        return this.http.put<any>(urlApi+id, enterprise,{headers:headers});
+        return this.http.put<any>(urlApi+idEnterprise, enterprise,{headers:headers});
     }
+    putEnterrpise(idEnterprise, form:enterpriseI):Observable<enterpriseI>{
+      let direccion = api_url+'api/EnterPrise/';
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+      console.log(headers)
+      return this.http.put<any>(direccion+idEnterprise, form,{headers:headers});
+  }
 
-    //DeleteEnterprise(id)
+    DeleteEnterprise(id:number){
+      let url = api_url+'api/EnterPrise/'+id;
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+      console.log(headers)
+      return this.http.delete(url,{headers:headers});
+    }
 
 }

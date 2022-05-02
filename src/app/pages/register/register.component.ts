@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RegisterService } from './register.service';
 import { usuariosI } from 'src/app/models/usuarios.interface';
 import { usuarioI } from 'src/app/models/usuario.interface';
+import { RegisterI } from 'src/app/models/register';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,8 +11,8 @@ import { usuarioI } from 'src/app/models/usuario.interface';
 })
 export class RegisterComponent implements OnInit {
 
-  idUser!:number;
- registers: usuariosI[]=[];
+  idUser:number;
+ registers: RegisterI[]=[];
  usuarios: usuarioI[]=[];
   isLoading = true;
 
@@ -41,7 +42,7 @@ export class RegisterComponent implements OnInit {
   
 
   getAllRegister(){
-    this.Registerservice.getAllRegister().subscribe((resp:usuariosI[])=>{
+    this.Registerservice.getAllRegister().subscribe((resp:RegisterI[])=>{
       this.registers=resp;
       this.isLoading = false;
     });
@@ -52,14 +53,14 @@ export class RegisterComponent implements OnInit {
     this.redirect.navigate(['edit-register', id]);
     console.log(id)
   }
-  /*deleteRegister(Register:RegisterI){
+  deleteRegister(Register:RegisterI){
     if (confirm("¿Esta seguro de eliminar esto?"))
      {
       this.Registerservice.DeleteEnterprise(Number(Register.idUser)).subscribe(()=>{
         window.location.reload();
       });  
     }
-  }*/
+  }
 
 
 }

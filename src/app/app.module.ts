@@ -20,6 +20,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EditEnterpriseComponent } from './pages/enter-prise/edit-enterprise/edit-enterprise.component';
 import { EnterpriseCashComponent } from './pages/enterprise-cash/enterprise-cash.component';
 import { MunicipyComponent } from './pages/municipy/municipy.component';
+import { EditarEmpresaComponent } from './pages/enter-prise/editar-empresa/editar-empresa.component';
+import { AddRegisterComponent } from './pages/register/add-register/add-register.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { MunicipyComponent } from './pages/municipy/municipy.component';
     AddEnterpriseComponent,
     EditEnterpriseComponent,
     EnterpriseCashComponent,
-    MunicipyComponent
+    MunicipyComponent,
+    EditarEmpresaComponent,
+    AddRegisterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

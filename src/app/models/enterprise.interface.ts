@@ -2,15 +2,16 @@ export interface enterpriseI {
   
   idEnterprise?: string,
   idState: string,
-  idMunicipality?: string,
-  fldname?: string,
+  idMunicipality: string,
+  fldname: string,
   fldlocality: string,
   fldstreet: string,
-  fldnumber: string,
+  fldnumber: number,
   fldpostCode: string,
   fldphoneNumber: string,
   fldemail: string,
-  fldpageWeb: string
+  fldpageWeb: string,
+
 
 
 }

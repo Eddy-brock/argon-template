@@ -15,14 +15,14 @@ export class RegisterService {
     private headers = new HttpHeaders().set('Authorization', `Bearer ${ localStorage.getItem('token')}`);
     constructor(private http: HttpClient){}
 
-    sendRequest(newRegister:usuarioI): Observable<usuarioI>{
+    sendRequest(newRegister:RegisterI): Observable<RegisterI>{
         console.log("json" + JSON.stringify(newRegister));
         let urlApi = api_url+'api/Usuario';
         const headers = new HttpHeaders().set('Authorization', `Bearer ${ localStorage.getItem('token')}`);
         console.log(headers);
         return this.http.post<any>(urlApi, newRegister, {headers:headers});
     }
-        getAllRegister():Observable<usuariosI[]>{
+        getAllRegister():Observable<RegisterI[]>{
         let urlApi = api_url+'api/Usuario/Lista';//id???
         const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`)
         .append('Content-Type', 'application/json')
@@ -30,7 +30,7 @@ export class RegisterService {
     .append('Access-Control-Allow-Methods', 'GET')
     .append('Access-Control-Allow-Origin', '*');
         console.log(headers);
-        return this.http.get<usuariosI[]>(urlApi, {headers:headers});
+        return this.http.get<RegisterI[]>(urlApi, {headers:headers});
     }
     getId(id:number):Observable<usuarioI>{
         let urlApi = api_url+'api/Usuario/Lista/'+id;
@@ -50,7 +50,8 @@ export class RegisterService {
         return this.http.put<usuarioI>(direccion, form,{headers:headers});
     }
 
-    /*DeleteEnterprise(id:number){
-        return this.http.delete(id,{headers:this.headers});
-    }*/
+    DeleteEnterprise(id:number){
+        let direccion = api_url+'api/Usuario/'+id;
+        return this.http.delete(direccion,{headers:this.headers});
+    }
 }

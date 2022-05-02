@@ -10,6 +10,8 @@ import { EnterPriseComponent } from 'src/app/pages/enter-prise/enter-prise.compo
 import { AddEnterpriseComponent } from 'src/app/pages/enter-prise/add-enterprise/add-enterprise.component';
 import { EditEnterpriseComponent } from 'src/app/pages/enter-prise/edit-enterprise/edit-enterprise.component';
 import { MunicipyComponent } from 'src/app/pages/municipy/municipy.component';
+import { EditarEmpresaComponent } from 'src/app/pages/enter-prise/editar-empresa/editar-empresa.component';
+import { AddRegisterComponent } from 'src/app/pages/register/add-register/add-register.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -21,5 +23,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'enter-prise',    component: EnterPriseComponent},
     { path: 'add-enterprise', component: AddEnterpriseComponent},
     { path: 'edit-enterprise/:id', component: EditEnterpriseComponent},
-    { path: 'municipy',            component: MunicipyComponent}
+    { path: 'editar-empresa/:id', component: EditarEmpresaComponent},
+    { path: 'municipy',            component: MunicipyComponent},
+    { path: 'add-register', component:AddRegisterComponent}
 ];

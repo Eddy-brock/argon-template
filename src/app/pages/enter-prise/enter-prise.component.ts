@@ -42,9 +42,16 @@ export class EnterPriseComponent implements OnInit {
   }
   //
   editarEnterprise(id){
-    this.redirect.navigate(['edit-enterprise', id]);
+    this.redirect.navigate(['editar-empresa', id]);
     console.log(id);
   }
   
+  deleteEnterprise(enterprise:enterpriseI){
+    if(confirm("esta seguro que quiere eliminar esto?")){
+      this.enterpriseserve.DeleteEnterprise(Number(enterprise.idEnterprise)).subscribe(()=>{
+        window.location.reload();
+      });
+    }
+  }
   
 }

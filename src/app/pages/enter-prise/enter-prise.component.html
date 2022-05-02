@@ -23,7 +23,7 @@
                 <th scope="col">acciones</th>
               </tr>
             </thead>
-            <tbody *ngFor="let enterprise of enterprises" (click)="editarEnterprise(enterprise.idEnterprise)">
+            <tbody *ngFor="let enterprise of enterprises" ><!--(click)="editarEnterprise(enterprise.idEnterprise)"  -->
               <tr>
                 <th scope="row">{{enterprise.idMunicipality}}</th>
                 
@@ -34,7 +34,10 @@
                 <td>{{enterprise.fldpageWeb}}</td>
                 <td>
                   <button class="btn btn-primary btn-sm" >
-                    <i class="fa fa-pen text-white" aria-hidden="true" [routerLink]="['/edit-enterprise/', enterprise.idEnterprise]"></i>
+                    <i class="fa fa-pen text-white" aria-hidden="true" [routerLink]="['/editar-empresa/',enterprise.idEnterprise]"></i><!-- /edit-enterprise/ -->
+                  </button>
+                  <button class="btn btn-danger btn-sm" >
+                    <i class="fa fa-trash text-white" aria-hidden="true" (click)="deleteEnterprise(enterprise)"></i><!-- /edit-enterprise/ -->
                   </button>
                 </td>
                  

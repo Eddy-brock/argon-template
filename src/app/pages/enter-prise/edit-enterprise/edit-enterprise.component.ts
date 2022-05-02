@@ -10,13 +10,15 @@ import { EnterpriseService } from '../enterprise.service';
   styleUrls: ['./edit-enterprise.component.scss']
 })
 export class EditEnterpriseComponent implements OnInit {
-  enterprises:enterpriseI[]=[];
+  enterprises:enterpriseI[];
   idEnterprise:number=0;
+  idState: number;
+  idMunicipality:number;
   action:string='Editar';
   newDate: FormGroup;
   private enterprise:enterpriseI|undefined;
   erorrs: string[]=[];
-  isLoadingEditEnterprise=true;
+  isLoading=true;
   constructor(private editarService: EnterpriseService, private route: ActivatedRoute,
               private redirect: Router, private formBuilder: FormBuilder) {
                 this.newDate = formBuilder.group({
@@ -28,23 +30,29 @@ export class EditEnterpriseComponent implements OnInit {
                   fldphoneNumber : ['',[Validators.required]],
                   fldemail : ['',[Validators.required]],
                   fldpageWeb : ['',[Validators.required]],
-                  idState:['',[Validators.required]],
-                  idMunicipality :['',[Validators.required]],
+                  
+                 
                 });
                 this.idEnterprise= +this.route.snapshot.paramMap.get('id')!;
+                this.idState= +this.route.snapshot.paramMap.get('idState')!;
+                this.idMunicipality= +this.route.snapshot.paramMap.get('idMunicipality')!;
                }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('token'));
+    if (localStorage.getItem('token')== null) {
+      this.redirect.navigate(['login']);
+    }
     this.isEdit();
   }
 
   private isEdit(){
-    if(this.idEnterprise > 0){
+    if(this.idEnterprise >0)
+    {
       this.action = 'Editar'
-      this.editarService.GetIdEnter(this.idEnterprise).subscribe((resp:enterpriseI)=>{
+      this.editarService.GetIdEnter(this.idEnterprise).subscribe((resp:enterpriseI)=>
+      {
         this.enterprise = resp;
-        console.log(resp);
+        
         this.newDate.patchValue({
           fldname : resp.fldname,
           fldlocality: resp.fldlocality,
@@ -54,15 +62,15 @@ export class EditEnterpriseComponent implements OnInit {
           fldphoneNumber: resp.fldphoneNumber,
           fldemail: resp.fldemail,
           fldpageWeb: resp.fldpageWeb,
-          idState: resp.idState,
-          idMunicipality: resp.idMunicipality
+          
+         
         });
-        this.isLoadingEditEnterprise = false;
+        this.isLoading = false;
       });
     }
   }
   EditEnterprise(){
-    console.log('error')
+    
     this.erorrs = []
     if (this.newDate.invalid){
       alert('debes llenar bien el formulario')
@@ -80,11 +88,12 @@ export class EditEnterpriseComponent implements OnInit {
       fldphoneNumber : this.newDate.get('fldphoneNumber').value,
       fldemail : this.newDate.get('fldemail').value,
       fldpageWeb : this.newDate.get('fldpageWeb').value,
-      idState : this.newDate.get('idState').value,
-      idMunicipality : this.newDate.get('idMunicipality').value,
+      idState : this.enterprise.idState,
+      idMunicipality : this.enterprise.idMunicipality,
+      
 
     }//pendiente diseño para pruebas
-    if(this.erorrs.length == 0)
+    if(this.erorrs.length ==0)
     {
       this.editarService.UpdateEnterprise(this.idEnterprise, edita).subscribe(
         (resp:any)=>{
